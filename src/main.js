@@ -1,17 +1,15 @@
-const navs = document.getElementById("navigation");
-const navA = navs.getElementsByClassName("nav-a");
+let nameInput = document.getElementById('name-input')
 
-for (let i = 0; i < navA.length; i++) {
-  navA[i].addEventListener("click", function () {
-    const active = document.querySelector(".text-blue-600.underline");
+let enterButton = document.getElementById("enter-button")
 
-    if (active) {
-      active.classList.remove("text-blue-600", "underline");
-      active.classList.add("text-gray-700");
+let text = document.getElementById("greet-text")
+
+enterButton.addEventListener('click',()=>{
+    let nameValue = nameInput.value.trim()
+    if(nameValue === ""){
+        return alert("Please Enter Your Name")
     }
-
-    this.classList.remove("text-gray-700");
-    this.classList.add("text-blue-600", "underline");
-  });
-}
-
+    else{
+        text.textContent = `Hello ${nameValue}, Welcome to CyberDude Networks`
+    }
+})
